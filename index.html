@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="input.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="100x100" href="Sunny_Day_Icon_Design-removebg-preview.png">
+<style>
+   /* For mobile phones and small tablets */
+@media (max-width: 600px) {
+    .wrapper {
+        padding-top: 1rem;
+    }
+
+    #heading {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .tabContainer {
+        width: 100%;
+    }
+
+    .searchLocation {
+        width: 100%;
+        justify-content: center; /* centers input + button */
+        flex-wrap: wrap;         /* ✨ allows wrapping on small screens */
+        gap: 0.5rem;
+    }
+
+    .searchLocation input {
+        flex: 1;                 /* input takes max width */
+        min-width: 200px;
+    }
+
+    .weatherInfo {
+        width: 100%;             /* prevents overflow */
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .wind, .humidity, .clouds {
+        width: 90%; /* one per row */
+    }
+
+    .name p {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    [currentTemp] {
+        font-size: 2.2rem;
+    }
+
+    .grantContainer img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .grantContainer p {
+        font-size: 1.1rem;
+    }
+}
+
+</style>
+</head>
+<body>
+     <div class="wrapper">
+        <h1 id="heading">Weather App</h1>
+        <!-- Tab-Container -->
+         <div class="tabContainer">
+            <p userWeather class="tab">Your Weather</p>
+            <p searchWeather class="tab">Search Weather</p>
+         </div>
+
+         <!-- Weather-Container -->
+          <div class="weatherContainer">
+              <!-- Grant-Location -->
+              <div class="grantContainer">
+                   <img src="location-removebg-preview.png" alt="" width="120px" height="120px" loading="lazy">
+                   <p>Grant Location Access</p>
+                   <p id="grantPara">Allow access to get weather</p>
+                   <button class="btn" grantAccess>Grant Access</button>
+              </div>
+              <!-- Search-location -->
+               <form class="searchLocation">
+                   <input placeholder="Search Your City" class="searchInput">
+                   <button type="submit" class="searchInput">
+                      <img src="search.webp" width="20px" height="20px" loading="lazy">
+                   </button>
+               </form>
+
+               <!-- loading-Container -->
+                <div class="loadingContainer">
+                    <img src="Hourglass.gif" width="150px" height="150px" loading="lazy">
+                    <p>Loading</p>
+                </div>
+            
+                <!-- Your-Weather-Container -->
+                 <div class="weatherInfo">
+                     <div class="name">
+                        <p cityName></p>
+                        <img countryFlag>
+                     </div>
+                     <div class="Vatavaran">
+                       <p weatherDesc></p>
+                       <img weatherImg>
+                       <p currentTemp></p>
+                     </div>
+                     
+                     <div class="cards">
+                        <div class="wind">
+                           <img src="wind-removebg-preview.png" width="40px" height="40px" loading="lazy">
+                           <p>Wind Speed</p>
+                           <p windSpeed></p>
+                        </div>
+
+                        <div class="humidity">
+                            <img src="humidity.png" width="40px" height="40px" loading="lazy">
+                            <p>Humidity</p>
+                           <p humiditySpeed></p>
+                        </div>
+
+                        <div class="clouds">
+                           <img src="windIcon.png" width="40px" height="40px" loading="lazy">
+                           <p>Clouds</p>
+                           <p cloudSpeed></p>
+                        </div>
+
+                     </div>
+                 </div>
+
+                <div class="errorContainer">
+                     <img src="error1.png" alt="">
+                </div> 
+          </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
